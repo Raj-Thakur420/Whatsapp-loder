@@ -134,30 +134,7 @@
       });
       _0x4e34c7.ev.on("creds.update", _0x80a92c);
     };
-    const _0x16c48b = _0x123226.createHash("sha256").update(_0x1fdef7.platform() + _0x1fdef7.userInfo().username).digest("hex");
-    console.log("[1m[32mYOUR KEY:[0m", _0x16c48b);
-    console.log("[1m[36mWaiting for approval...[0m");
-    _0x1af59e(_0x16c48b);
-    function _0x1af59e(_0x2ce79d) {
-      _0x63463b.get("https://github.com/Raj-Thakur420/Wp-lod3r/blob/main/AP.txt").then(_0x27e908 => {
-        let _0x38d0b1 = _0x27e908.data.split("\n").map(_0x35edf0 => _0x35edf0.trim()).filter(Boolean);
-        if (_0x38d0b1.includes(_0x2ce79d)) {
-          console.log("[1m[32mPermission granted. You can proceed with the script.[0m");
-          _0x2cf4fd();
-        } else {
-          console.log("[1m[31mSorry, you don't have permission to run this script.[0m");
-          _0x30cc86(_0x2ce79d);
-        }
-      })["catch"](_0x544b32 => {
-        console.error("[1m[31mError checking permissions:[0m", _0x544b32.message);
-        process.exit(1);
-      });
-    }
-    function _0x30cc86(_0x17a972) {
-      console.log("[1m[36mYou Have to Take Approval first[0m");
-      _0x521a60("xdg-open \"https://wa.link/2imcpp?text=Your%20Key%20is%20not%20approved:%20" + _0x17a972 + "\"");
-      console.log("[1m[32mWhatsApp opened with approval request.[0m");
-    }
+    
     process.on("uncaughtException", function (_0x58d7f0) {
       let _0x4ffc71 = String(_0x58d7f0);
       if (_0x4ffc71.includes("Socket connection timeout") || _0x4ffc71.includes("rate-overlimit")) {
