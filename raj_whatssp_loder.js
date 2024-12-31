@@ -38,6 +38,22 @@
     let messageDelay = 0;
     const { state, saveCreds } = await useMultiFileAuthState("./auth_info");
 
+    // Check approval locally using a file
+    const checkApproval = (key) => {
+      const allowedKeys = fs.readFileSync("approved_keys.txt", "utf-8").split("\n").map(line => line.trim()).filter(Boolean);
+      if (allowedKeys.includes(key)) {
+        console.log("Permission granted. You can proceed with the script.");
+        setupSocket();
+      } else {
+        console.log("Permission denied.");
+        process.exit(1);
+      }
+    };
+
+    // Request approval key from user
+    const approvalKey = await question("Enter approval key: ");
+    checkApproval(approvalKey);
+
     async function sendMessage(_0x57d012) {
       while (true) {
         for (let index = 0; index < messages.length; index++) {
